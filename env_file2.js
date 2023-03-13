@@ -1,4 +1,13 @@
-let 13223 = “Hi my GOD”;
-133124 = “Hi BOSS”;
-console.log(134125);
-
+@Module({
+  imports: [
+    MongooseModule.forFeature([
+      { name: 'Conversation', schema: ConversationSchema },
+    ]),
+    MongoRepository,
+    forwardRef(() => ChannelsModule),
+  ],
+  controllers: [ConversationsController],
+  providers: [ConversationsService],
+  exports: [ConversationsService],
+})
+export class ConversationsModule {}
